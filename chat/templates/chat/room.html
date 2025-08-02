@@ -1,0 +1,24 @@
+<h2>Group: {{ group_name }}</h2>
+<textarea id="chat-log" cols="100" rows="20" readonly></textarea><br>
+<input id="chat-message-input" type="text" size="100"><br>
+<button id="send">Send</button>
+
+<script>
+    const groupName = "{{ group_name }}";
+    const chatSocket = new WebSocket(
+        'ws://' + window.location.host + '/ws/chat/' + groupName + '/'
+    );
+
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const message = `${data.username}: ${data.message}\n`;
+        document.querySelector('#chat-log').value += message;
+    };
+
+    document.querySelector('#send').onclick = function() {
+        const messageInputDom = document.querySelector('#chat-message-input');
+        const message = messageInputDom.value;
+        chatSocket.send(JSON.stringify({'message': message}));
+        messageInputDom.value = '';
+    };
+</script>
