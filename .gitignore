@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+
+# Virtualenv
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Django
+*.log
+local_settings.py
+
+# VSCode
+.vscode/
+
+# PyCharm
+.idea/
+
+# System
+.DS_Store
+Thumbs.db
+
+# dotenv
+.env
+.env.*
+
+# Migrations (optional - only if you want to exclude generated migrations)
+# Be careful: do not ignore migrations in production apps
+# chat/migrations/
+# */migrations/
+
+# Redis dump (if used locally)
+dump.rdb
+
+# Coverage reports
+htmlcov/
+.coverage
+.tox/
+.nox/
+.cache/
+
+# mypy
+.mypy_cache/
+
+# pytest
+.pytest_cache/
